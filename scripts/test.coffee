@@ -7,10 +7,10 @@ module.exports = (robot) ->
 		msg.send "なんだこの客..."
 
 	robot.hear /こんにちは/i, (msg) ->
-		msg.send "こんにちは:grinning:"
+		msg.reply "こんにちは:grinning:"
 
 	robot.hear /おはよう/i, (msg) ->
-		msg.send "おはようございます:grinning:"
+		msg.reply "おはようございます:grinning:"
 
 	robot.hear /こんばんは/i, (msg) ->
-		msg.send "こんばんは:grinning:"
+		msg.reply "こんばんは:grinning:"
