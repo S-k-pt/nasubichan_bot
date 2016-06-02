@@ -1,3 +1,7 @@
+#Description:
+#	test script
+#
+
 module.exports = (robot) ->
 
 	robot.respond /疲れた/i, (msg) ->
