@@ -3,7 +3,7 @@
 #
 
 
-Trello = require("node-trello")
+Trello = require 'node-trello'
 
 
 module.exports = (robot) ->
