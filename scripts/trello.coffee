@@ -2,13 +2,11 @@
 #	test script
 #
 
-
-Trello = require 'node-trello'
-
-
 module.exports = (robot) ->
     robot.hear /^todo (.*)/i, (msg) ->
         title = "#{msg.match[1]}"
+
+        Trello = require ("node-trello")
         trello = new Trello(process.env.HUBOT_TRELLO_KEY, process.env.HUBOT_TRELLO_TOKEN)
         trello.post "/1/cards", {name: title, idList: process.env.HUBOT_TRELLO_TODO}, (err, data) ->
             if err 
