@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # nasubichan
 
 nasubichan is a chat bot built on the [Hubot][hubot] framework. It was
@@ -213,7 +212,3 @@ Add the subdomain hubot should connect to. If you web URL looks like
 
 You may want to get comfortable with `heroku logs` and `heroku restart` if
 you're having issues.
-=======
-# nasubichan_bot
-taskbot
->>>>>>> ce721f4c6028189e9e76b9446962be5adecc86d2
