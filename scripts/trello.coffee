@@ -3,7 +3,7 @@
 #
 
 module.exports = (robot) ->
-    robot.hear /^todo (.*)/i, (msg) ->
+    robot.hear /(.*)を追加(.*)/i, (msg) ->
         title = "#{msg.match[1]}"
 
         Trello = require ("node-trello")
