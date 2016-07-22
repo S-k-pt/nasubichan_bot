@@ -14,7 +14,7 @@ module.exports = (robot) ->
                 return
             msg.send "タスク「#{title}」 をToDoリストに登録しました"
 
-    robot.hear /今から(.*)\b(.*)\b/i, (msg) ->
+    robot.hear /今から(.*)/i, (msg) ->
         title = "#{msg.match[1]}"
 
         Trello = require ("node-trello")
