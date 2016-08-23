@@ -1,9 +1,11 @@
 #Description:
-#	test scripts
+#	Trello add/move/createboard scripts
 #
 
 module.exports = (robot) ->
     Trello = require ("node-trello")
+    TrelloBoard = require './module/trello-board'
+    TrelloTools = require './module/hubot-trello-tools'
     org = process.env.HUBOT_TRELLO_BOARD
     trello = new Trello(process.env.HUBOT_TRELLO_KEY, process.env.HUBOT_TRELLO_TOKEN)
 
@@ -18,7 +20,7 @@ module.exports = (robot) ->
                 if board.name.toLowerCase() == "slackbot-test"
                     args['boardID'] = board.id
                     return args['callbacks'].shift()(msg, args)
-            msg.send "ボードが存在しません"
+            msg.send "指定されたボードが存在しません"
 
     getBLists = (msg, args) ->
         url = "/1/boards/#{args['boardID']}/lists"
@@ -102,5 +104,9 @@ module.exports = (robot) ->
             #msg.send "タスク登録に失敗しました。[errcode: #{err}]"
             #return
         #msg.send "タスク「#{title}」 をDoneリストに登録しました"
+
+    robot.hear /かんばん(.*)を作成(.*)/i, (msg) ->
+        title = "#{msg.match[1]}"
+        TrelloTools.createKanban(title, org, msg)
 
 
